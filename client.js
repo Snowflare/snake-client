@@ -15,17 +15,18 @@ const connect = function() {
   });
   conn.on('connect', () => {
     conn.write("Name: ___");
-    setTimeout(() => {
-      conn.write("Move: up");
-    }, 1000);
+    // setTimeout(() => {
+    //   conn.write("Move: up");
+    // }, 1000);
     
     // conn.write("Move: up");
     // conn.write("Move: up");
     // conn.write("Move: up");
   });
+ 
 
   return conn;
 }
 
 
-module.exports = connect;
+module.exports.connect = connect;
