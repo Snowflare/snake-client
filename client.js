@@ -14,14 +14,7 @@ const connect = function() {
     console.log('Server says: ', data);
   });
   conn.on('connect', () => {
-    conn.write("Name: ___");
-    // setTimeout(() => {
-    //   conn.write("Move: up");
-    // }, 1000);
-    
-    // conn.write("Move: up");
-    // conn.write("Move: up");
-    // conn.write("Move: up");
+    conn.write("Name: SNK");
   });
  
 
