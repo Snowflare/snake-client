@@ -3,7 +3,7 @@
  * Specifically, so that we can handle user input via stdin
  */
 let connection; 
-
+const { IP, PORT, keyBind} = require('./constants');
 const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
@@ -12,22 +12,7 @@ const setupInput = function(conn) {
   
   stdin.on('data', (key) => {
     handleUserInput(key);
-    if (key === 'w'){
-      conn.write("Move: up")
-    }
-    if (key === 's'){
-      conn.write("Move: down")
-    }
-    if (key === 'a'){
-      conn.write("Move: left")
-    }
-    if (key === 'd'){
-      conn.write("Move: right")
-    }
-    if (key === 'e'){
-      conn.write("Say: Hey")
-    }
-    
+      conn.write(keyBind[key]);    
   });
   stdin.resume();
   return stdin;
