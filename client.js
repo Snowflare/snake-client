@@ -5,11 +5,24 @@ const net = require('net');
  */
 const connect = function() {
   const conn = net.createConnection({ 
-    host: '10.0.2.15',
+    host: 'localhost',
     port: 50541
   });
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
+  conn.on('data', (data) => {
+    console.log('Server says: ', data);
+  });
+  conn.on('connect', () => {
+    conn.write("Name: ___");
+    setTimeout(() => {
+      conn.write("Move: up");
+    }, 1000);
+    
+    // conn.write("Move: up");
+    // conn.write("Move: up");
+    // conn.write("Move: up");
+  });
 
   return conn;
 }
